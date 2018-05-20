@@ -420,9 +420,7 @@
          * Create the touch controller. A div that covers whole screen.
          */
         createTouchController: function () {
-            this.touchController = document.createElement('div');
-            this.touchController.className = Runner.classes.TOUCH_CONTROLLER;
-            this.outerContainerEl.appendChild(this.touchController);
+            this.touchController = document.getElementById('touchpad');
         },
 
         /**
@@ -688,7 +686,9 @@
          */
         onKeyDown: function (e) {
             // Prevent native page scrolling whilst tapping on mobile.
-            if (IS_MOBILE && this.playing) {
+            
+            if (IS_MOBILE && this.playing && e.target.nodeName !== 'A') {
+                console.log('blocking events');
                 e.preventDefault();
             }
 

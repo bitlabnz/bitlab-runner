@@ -35,7 +35,10 @@
         this.distanceMeter = null;
         this.distanceRan = 0;
 
-        this.highestScore = 0;
+        // Get from localStorage or set to zero if it doesn't exist
+        var highScore = localStorage.getItem('runner.bitlab.highscore');
+        this.highestScore = parseInt(highScore) || 0;
+        
 
         this.time = 0;
         this.runningTime = 0;
@@ -393,6 +396,10 @@
             this.distanceMeter = new DistanceMeter(this.canvas,
                 Helper.getTextSprite(), this.dimensions.WIDTH);
 
+            // Also render High Score if previously earned
+            if(this.highestScore > 0) {
+                this.distanceMeter.setHighScore(this.highestScore);    
+            }
             // Draw player
             this.player = new Player(this.canvas, this.spriteDef.PLAYER);
 
@@ -806,6 +813,7 @@
 
             // Update the high score.
             if (this.distanceRan > this.highestScore) {
+                
                 this.highestScore = Math.ceil(this.distanceRan);
                 this.distanceMeter.setHighScore(this.highestScore);
             }
@@ -2104,11 +2112,12 @@
          * @param {number} distance Distance ran in pixels.
          */
         setHighScore: function (distance) {
+            localStorage.setItem('runner.bitlab.highscore', distance);
             distance = this.getActualDistance(distance);
             var highScoreStr = (this.defaultString +
                 distance).substr(-this.maxScoreUnits);
-
             this.highScore = ['10', '11', ''].concat(highScoreStr.split(''));
+           
         },
 
         /**

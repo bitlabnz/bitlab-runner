@@ -40,6 +40,36 @@ body.inverted canvas {
   background: #3d4356;
 }
 
+.touchpad-container {
+  padding: 0 15px;
+}
+
+#touchpad {
+  background: #eee;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  height: 150px;
+  width: 100%;
+  position: relative;
+}
+
+.v-center {
+  top: 50%;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+#touchpad h1, #touchpad h4 {
+  color: #999;
+  margin: 0;
+}
+#touchpad h1 {
+  color: #999;
+  margin: 0;
+}
+
 .icon {
   -webkit-user-select: none;
   user-select: none;
@@ -140,10 +170,14 @@ p {
   
 }
 
-p.padded {
-  margin-top: 45px;
+.padded {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
+.no-margin {
+  margin: 0;
+}
 
 .heart {
   max-height: 16px;

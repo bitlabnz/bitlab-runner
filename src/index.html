@@ -19,7 +19,7 @@
                 <div id="instructions" class="transition">
                     <h2 id="tapInstruction" class="hidden"><span class="kbd">Tap</span></h2>
                     <h2 id="spaceInstruction" class="hidden"><span class="kbd">Space</span></h2>
-                    <h3>TO JUMP</h3>
+                    <h3 class="no-margin">TO JUMP</h3>
                 
                 <a href="#" onclick="activateBot()" id="bot-activate-btn" class="eightbit-btn">Activate Bot</a>
                 <a href="#" onclick="killBot()" id="bot-deactivate-btn" class="eightbit-btn eightbit-btn--reset hidden">Deactivate Bot</a>
@@ -29,13 +29,22 @@
                     <p>Sometimes it can be a bit hard keeping up with everything you need to do in your business.</p>
                     <p>Luckily we can take care of all your business' digital requirements at Bitlab!</p>
                     <p>Contact us today for a free 15-minute consultation</p>
-                    <a href="https://bitlab.co.nz" id="bot-activate-btn" class="eightbit-btn">Visit Bitlab</a>
+                    <a href="https://bitlab.co.nz/?utm_source=interactive&utm_medium=cta_button&utm_campaign=bitlab_runnerz" id="bot-activate-btn" class="eightbit-btn">Visit Bitlab</a>
                 </div>
+                <div class="touchpad-container hidden padded">
+                        <div id="touchpad">
+                            <div class="v-center">
+                                <h4>TAP TO</h4>
+                                <h1>JUMP</h1>
+                            </div>
+                        </div>
+                    </div>
                 <p class="padded">    
                 <small>
-                    made with <span><img class="heart" src="assets/heart.png"></span> by <a href="https://bitlab.co.nz">Bitlab</a> <br> in Christchurch, New Zealand
+                    made with <span><img class="heart" src="assets/heart.png"></span> by <a href="https://bitlab.co.nz/?utm_source=interactive&utm_medium=text_link&utm_campaign=bitlab_runner">Bitlab</a> <br> in Christchurch, New Zealand
                 </small>
                 </p>
+                
             </div>
         </div>
         <div id="offline-resources">
@@ -48,8 +57,18 @@
             </template>
         </div>
     </div>
-    <script src="js/index.js"></script>
-    <script src="js/bot.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110494648-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110494648-1');
+    </script>
+
 </body>
 
 </html>

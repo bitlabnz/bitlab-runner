@@ -52,6 +52,7 @@ function toggleButtons() {
 function toggleScreens() {
     var solutions = document.getElementById('solutions');
     var instructions = document.getElementById('instructions');
+    var touchpad = document.getElementsByClassName('touchpad-container')[0];
     if(!solutions.classList.contains('hidden')) {
         solutions.classList.add('hidden');
     } else {
@@ -60,16 +61,20 @@ function toggleScreens() {
 
     if(instructions.classList.contains('hidden')) {
         instructions.classList.remove('hidden');
+        touchpad.classList.remove('hidden');
     } else {
         instructions.classList.add('hidden');
+        touchpad.classList.add('hidden');
     }
 }
 
 function doInstructions() {
     var tap = document.getElementById('tapInstruction');
+    var touchpad = document.getElementsByClassName('touchpad-container')[0];
     var space = document.getElementById('spaceInstruction');
     if(IS_MOBILE) {
         tap.classList.remove('hidden');
+        touchpad.classList.remove('hidden');
     } else {
         space.classList.remove('hidden');
     }

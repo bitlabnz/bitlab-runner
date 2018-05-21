@@ -1,0 +1,23 @@
+{
+  "name": "bitlab-runner",
+  "version": "1.0.0",
+  "description": "Infinite runner game based on the Chrome Dinosaur",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitlabnz/bitlab-runner.git"
+  },
+  "author": "Drian Naude <drian.naude@bitlab.co.nz>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitlabnz/bitlab-runner/issues"
+  },
+  "homepage": "https://github.com/bitlabnz/bitlab-runner#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-server-livereload": "^1.9.2"
+  }
+}

@@ -37,8 +37,9 @@
 
         // Get from localStorage or set to zero if it doesn't exist
         var highScore = localStorage.getItem('runner.bitlab.highscore');
+        var highScoreNumber = localStorage.getItem('runner.bitlab.highscorenumber');
         this.highestScore = parseInt(highScore) || 0;
-        
+        this.highScoreNumber = highScoreNumber || 0;
 
         this.time = 0;
         this.runningTime = 0;
@@ -2116,6 +2117,7 @@
             distance = this.getActualDistance(distance);
             var highScoreStr = (this.defaultString +
                 distance).substr(-this.maxScoreUnits);
+            localStorage.setItem('runner.bitlab.highscorenumber', parseInt(distance));
             this.highScore = ['10', '11', ''].concat(highScoreStr.split(''));
            
         },

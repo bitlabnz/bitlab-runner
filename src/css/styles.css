@@ -86,18 +86,30 @@ body.inverted canvas {
   text-align: center;
 }
 
+.btn-image {
+  max-height: 24px;
+  margin: 0;
+  margin-bottom: -1px;
+  margin-right: -5px;
+}
+
 .eightbit-btn {
   background: #92CD41;
   display: inline-block;
   position: relative;
   text-align: center;
-  font-size: 18px;
-  padding: 10px;
-  margin-top: 25px;
+  font-size: 16px;
+  line-height: px;
+  vertical-align: middle;
+  padding: 10px 15px;
+  margin: 25px 10px;
   font-family: 'Press Start 2P', cursive;
   text-decoration: none;
   color: white;
   box-shadow: inset -4px -4px 0px 0px #4AA52E;
+}
+
+.eightbit-btn.full {
 }
 
 .eightbit-btn:hover,
@@ -154,6 +166,31 @@ body.inverted canvas {
 }
 .eightbit-btn--proceed:active {
   box-shadow: inset 4px 4px 0px 0px #E59400;
+}
+
+
+.eightbit-btn--facebook {
+  background: #3B5998;
+  box-shadow: inset -4px -4px 0px 0px #273a61;
+}
+.eightbit-btn--facebook:hover, .eightbit-btn--facebook:focus {
+  background: #37538d;
+  box-shadow: inset -6px -6px 0px 0px #273a61;
+}
+.eightbit-btn--facebook:active {
+  box-shadow: inset 4px 4px 0px 0px #273a61;
+}
+
+.eightbit-btn--twitter {
+  background: #00aced;
+  box-shadow: inset -4px -4px 0px 0px #048bbe;
+}
+.eightbit-btn--twitter:hover, .eightbit-btn--twitter:focus {
+  background: #009fdb;
+  box-shadow: inset -6px -6px 0px 0px #048bbe;
+}
+.eightbit-btn--twitter:active {
+  box-shadow: inset 4px 4px 0px 0px #048bbe;
 }
 
 *, *:before, *:after {

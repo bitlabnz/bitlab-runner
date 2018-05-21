@@ -27,6 +27,8 @@ function activateBot() {
 
 }
 
+
+
 function killBot() {
     toggleButtons();
     window.clearInterval(window.playerBot);
@@ -99,3 +101,66 @@ function gameOver() {
 document.addEventListener('gameStarted', start, false);
 document.addEventListener('gameOver', gameOver, false);
 
+// Social Sharing
+
+function getHighScore(){
+    return Runner.instance_.highScoreNumber;
+}
+
+function shareToFacebook(url) {
+    var score = getHighScore();
+    // Save these for future use, maybe we can do custom images. 
+    // var fbimgurl = 'http://';
+    // "&p[images][0]=" + encodeURI(fbimgurl) +
+    var fbimg = 'https://uploads-ssl.webflow.com/5aa733c2f1bd8ac7bbd2d257/5b02bb0efcdffe66897e7d83_sharing-img.jpg';
+    var fbtitle = 'I scored ' + score + '. Can you beat it?';
+    var fbsummary = 'Because sometimes it can be a bit hard keeping up with everything you need to do in your business, and sometimes you deserve a bit of fun. ';
+    var fbAppID = '223385144922428';
+    FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: JSON.stringify({
+            object : {
+               'og:url': url, // your url to share
+               'og:title': fbtitle,
+               'og:description': fbsummary,
+               'og:image': fbimg
+            }
+        })
+        },
+        // callback
+        function(response) {
+        if (response && !response.error_message) {
+            // then get post content
+            console.log('shared post');
+        } else {
+            alert('Something went error.');
+        }
+    });
+}
+
+function shareToTwitter(url) {
+    var score = getHighScore();
+    var tweet = 'I scored ' + score + '. Can you beat it?';
+    var tweetLink = 'https://twitter.com/share?text='+ tweet +'&url=' + url + '&hashtags=bitlabnz,digitalmarketing,runrunrun';
+    window.open(
+        tweetLink,
+        'twitter-share-dialog',
+        'width=626,height=436'); 
+      return  false;
+
+}
+
+function socialShare(platform) {
+    var shareLink = 'https://bitlab.co.nz/game';
+    switch(platform) {
+        case 'facebook':
+            shareToFacebook(shareLink);
+            break;
+        case 'twitter':
+            shareToTwitter(shareLink);
+            break;
+        default:
+            console.error('Invalid share option');
+    }
+}

@@ -2117,7 +2117,9 @@
             distance = this.getActualDistance(distance);
             var highScoreStr = (this.defaultString +
                 distance).substr(-this.maxScoreUnits);
-            localStorage.setItem('runner.bitlab.highscorenumber', parseInt(distance));
+            var highScoreNumber = parseInt(distance);
+            localStorage.setItem('runner.bitlab.highscorenumber', highScoreNumber);
+            Runner.instance_.highScoreNumber = highScoreNumber || 0;
             this.highScore = ['10', '11', ''].concat(highScoreStr.split(''));
            
         },

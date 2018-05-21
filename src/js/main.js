@@ -132,9 +132,8 @@ function shareToFacebook(url) {
         function(response) {
         if (response && !response.error_message) {
             // then get post content
-            console.log('shared post');
         } else {
-            alert('Something went error.');
+            console.error('could not share post');
         }
     });
 }

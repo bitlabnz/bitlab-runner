@@ -159,8 +159,8 @@ function shareToFacebook(url) {
             }
         })
     };
-    if(IS_MOBILE) {
-        opts.display = 'mobile';
+    if(IS_MOBILE && IS_IOS) {
+        opts.display = 'dialog';
     }
     FB.ui(opts,
         // callback

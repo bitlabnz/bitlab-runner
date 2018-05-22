@@ -510,6 +510,7 @@
                     'from { width:' + Player.config.WIDTH + 'px }' +
                     'to { width: ' + this.dimensions.WIDTH + 'px }' +
                     '}';
+                console.log(STYLESHEET);
                 STYLESHEET.insertRule(keyframes, 0);
 
                 this.containerEl.addEventListener(Runner.events.ANIM_END,

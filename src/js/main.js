@@ -103,9 +103,38 @@ document.addEventListener('gameOver', gameOver, false);
 
 // Social Sharing
 
+// So we don't have to keep swapping back and forth all the time.
+function getAppId() {
+    var staging = '269487923594740';
+    var production = '223385144922428';
+    if(window.location.host.indexOf('localhost') < 0 && window.location.host.indexOf('192.168.1.') < 0) {
+        return production;
+    }
+    return staging;
+}
+
+window.fbAsyncInit = function() {
+    FB.init({
+    appId      : getAppId(),
+    xfbml      : true,
+    version    : 'v3.0'
+    });
+    FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 function getHighScore(){
     return Runner.instance_.highScoreNumber;
 }
+
+
 
 function shareToFacebook(url) {
     var score = getHighScore();
@@ -115,23 +144,31 @@ function shareToFacebook(url) {
     var fbimg = 'https://uploads-ssl.webflow.com/5aa733c2f1bd8ac7bbd2d257/5b02bb0efcdffe66897e7d83_sharing-img.jpg';
     var fbtitle = 'I scored ' + score + '. Can you beat it?';
     var fbsummary = 'Because sometimes it can be a bit hard keeping up with everything you need to do in your business, and sometimes you deserve a bit of fun. ';
-    var fbAppID = '223385144922428';
-    FB.ui({
+    var fbAppID = getAppId();
+    var opts = {
         method: 'share_open_graph',
         action_type: 'og.shares',
         action_properties: JSON.stringify({
             object : {
-               'og:url': url, // your url to share
+               'og:url': 'http://192.168.1.200:8000/', // your url to share
                'og:title': fbtitle,
                'og:description': fbsummary,
                'og:image': fbimg
             }
         })
-        },
+    };
+    if(IS_MOBILE) {
+        opts.display = 'mobile';
+    }
+    FB.ui(opts,
         // callback
         function(response) {
         if (response && !response.error_message) {
-            // then get post content
+            // say thank you!
+            var ty = document.getElementById('thanks');
+            if(ty.classList.contains('hidden')) {
+                ty.classList.remove('hidden');
+            }
         } else {
             console.error('could not share post');
         }

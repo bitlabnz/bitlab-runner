@@ -33,14 +33,18 @@
                     <p>Contact us today for a free 15-minute consultation.</p>
                     <a href="https://bitlab.co.nz/?utm_source=interactive&utm_medium=cta_button&utm_campaign=bitlab_runnerz" id="bot-activate-btn" class="eightbit-btn full">Visit Bitlab</a>
                 </div>
+                <div id="thanks" class="thanks-wrapper hidden">
+                    <h2>Thanks for Sharing! :)</h2>
+                </div>
                 <div id="social" class="social-wrapper">
-                        <a href="#" onclick="socialShare('facebook')" id="fb-share-btn" class="eightbit-btn eightbit-btn--facebook">
-                            <img class="btn-image" src="assets/facebook.png" /> Share
-                        </a>
-                        <a href="#" onclick="socialShare('twitter')" id="fb-share-btn" class="eightbit-btn eightbit-btn--twitter">
-                            <img class="btn-image" src="assets/twitter.png" /> Tweet
-                        </a>
-                    </div>
+                    <a href="#" onclick="socialShare('facebook')" id="fb-share-btn" class="eightbit-btn eightbit-btn--facebook">
+                        <img class="btn-image" src="assets/facebook.png" /> Share
+                    </a>
+                    <a href="#" onclick="socialShare('twitter')" id="fb-share-btn" class="eightbit-btn eightbit-btn--twitter">
+                        <img class="btn-image" src="assets/twitter.png" /> Tweet
+                    </a>
+                </div>
+                
                 <div class="touchpad-container hidden padded">
                         <div id="touchpad">
                             <div class="v-center">
@@ -68,24 +72,6 @@
         </div>
     </div>
     <script src="js/game.js"></script>
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '223385144922428',
-            xfbml      : true,
-            version    : 'v3.0'
-            });
-            FB.AppEvents.logPageView();
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
     <script src="js/main.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110494648-1"></script>

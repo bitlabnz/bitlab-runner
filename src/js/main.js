@@ -11,6 +11,18 @@ var FACTOR = IS_MOBILE ? 5 : 25;
 
 var PLAYER_DIED = false;
 
+// So we don't have to keep swapping back and forth between App ID's for 
+// dev and production all the time anymore
+function getAppId() {
+    var staging = '269487923594740';
+    var production = '223385144922428';
+    if(window.location.host.indexOf('localhost') < 0 && window.location.host.indexOf('192.168.1.') < 0) {
+        return production;
+    }
+    return staging;
+}
+var FB_APP_ID = getAppId();
+
 function activateBot() {
   toggleButtons();
   window.playerBot = setInterval(function () {
@@ -103,19 +115,10 @@ document.addEventListener('gameOver', gameOver, false);
 
 // Social Sharing
 
-// So we don't have to keep swapping back and forth all the time.
-function getAppId() {
-    var staging = '269487923594740';
-    var production = '223385144922428';
-    if(window.location.host.indexOf('localhost') < 0 && window.location.host.indexOf('192.168.1.') < 0) {
-        return production;
-    }
-    return staging;
-}
 
 window.fbAsyncInit = function() {
     FB.init({
-    appId      : getAppId(),
+    appId      : FB_APP_ID,
     xfbml      : true,
     version    : 'v3.0'
     });
@@ -144,7 +147,6 @@ function shareToFacebook(url) {
     var fbimg = 'https://uploads-ssl.webflow.com/5aa733c2f1bd8ac7bbd2d257/5b02bb0efcdffe66897e7d83_sharing-img.jpg';
     var fbtitle = 'I scored ' + score + '. Can you beat it?';
     var fbsummary = 'Because sometimes it can be a bit hard keeping up with everything you need to do in your business, and sometimes you deserve a bit of fun. ';
-    var fbAppID = getAppId();
     var opts = {
         method: 'share_open_graph',
         action_type: 'og.shares',

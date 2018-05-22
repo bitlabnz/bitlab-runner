@@ -59,9 +59,7 @@ body.inverted canvas {
 }
 
 #touchpad:active {
-  background: #ddd;
   border: 2px dashed #999;
-  box-shadow: 0 0 23px -8px #222 inset;
 }
 
 
@@ -238,7 +236,7 @@ p {
   line-height: 1.55;
   margin: 0 auto;
   max-width: 600px;
-  padding-top: 100px;
+  padding-top: 150px;
   width: 100%;
 }
 

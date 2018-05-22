@@ -44,7 +44,7 @@ body.inverted canvas {
   padding: 0 15px;
 }
 
-#touchpad {
+#touchpad, #touchpad:focus {
   background: #eee;
   border: 2px dashed #aaa;
   border-radius: 10px;
@@ -53,21 +53,29 @@ body.inverted canvas {
   position: relative;
 }
 
+#touchpad h1, #touchpad:focus h1, #touchpad h4, #touchpad:focus h4 {
+  color: #999;
+  margin: 0;
+}
+
+#touchpad:active {
+  background: #ddd;
+  border: 2px dashed #999;
+  box-shadow: 0 0 23px -8px #222 inset;
+}
+
+
+#touchpad:active h1, #touchpad:active h4 {
+  color: #666;
+  margin: 0;
+}
+
 .v-center {
   top: 50%;
   text-align: center;
   position: absolute;
   width: 100%;
   transform: translateY(-50%);
-}
-
-#touchpad h1, #touchpad h4 {
-  color: #999;
-  margin: 0;
-}
-#touchpad h1 {
-  color: #999;
-  margin: 0;
 }
 
 .icon {

@@ -110,6 +110,7 @@
         var result = document.styleSheets[0];
         for(var i=0;i<document.styleSheets.length;i++) {
             var stylesheet = document.styleSheets[i];
+            console.log(stylesheet);
             if(stylesheet.href.indexOf('css/styles.css') > -1) {
                 console.log('yas');
                 result = stylesheet;

@@ -104,6 +104,24 @@
     /** @const */
     var IS_TOUCH_ENABLED = 'ontouchstart' in window;
 
+    
+
+    function findStyleSheet() {
+        var result = document.styleSheets[0];
+        for(var i=0;i<document.styleSheets.length;i++) {
+            var stylesheet = document.styleSheets[i];
+            if(stylesheet.href.indexOf('css/styles.css') > -1) {
+                console.log('yas');
+                result = stylesheet;
+            }
+        }
+        return result;
+    }
+
+    var STYLESHEET = findStyleSheet();
+
+
+
     /**
      * Default game configuration.
      * @enum {number}
@@ -492,7 +510,7 @@
                     'from { width:' + Player.config.WIDTH + 'px }' +
                     'to { width: ' + this.dimensions.WIDTH + 'px }' +
                     '}';
-                document.styleSheets[0].insertRule(keyframes, 0);
+                STYLESHEET.insertRule(keyframes, 0);
 
                 this.containerEl.addEventListener(Runner.events.ANIM_END,
                     this.startGame.bind(this));

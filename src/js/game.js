@@ -4,6 +4,7 @@
 // extract from chromium source code by @liuwayong
 (function () {
     'use strict';
+
     /**
      * T-Rex runner.
      * @param {string} outerContainerId Outer containing element id.
@@ -102,6 +103,23 @@
 
     /** @const */
     var IS_TOUCH_ENABLED = 'ontouchstart' in window;
+
+    
+
+    function findStyleSheet() {
+        var result = document.styleSheets[0];
+        for(var i=0;i<document.styleSheets.length;i++) {
+            var stylesheet = document.styleSheets[i];
+            if(stylesheet.href == 'https://bitlabnz.github.io/bitlab-runner/src/css/styles.css') {
+                result = stylesheet;
+            }
+        }
+        return result;
+    }
+
+    var STYLESHEET = findStyleSheet();
+
+
 
     /**
      * Default game configuration.

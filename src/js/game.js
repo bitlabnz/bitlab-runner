@@ -107,14 +107,11 @@
     
 
     function findStyleSheet() {
-        console.warn('FINDING STYLESHEET', document.styleSheets);
         var result = document.styleSheets[0];
         
         for(var i=0;i<document.styleSheets.length;i++) {
             var stylesheet = document.styleSheets[i];
-            console.warn(stylesheet.title);
             if(!!stylesheet.title && stylesheet.title === 'remote') {
-                console.log('yas', stylesheet);
                 result = stylesheet;
             }
         }
@@ -513,7 +510,6 @@
                     'from { width:' + Player.config.WIDTH + 'px }' +
                     'to { width: ' + this.dimensions.WIDTH + 'px }' +
                     '}';
-                console.log(STYLESHEET);
                 STYLESHEET.insertRule(keyframes, 0);
 
                 this.containerEl.addEventListener(Runner.events.ANIM_END,

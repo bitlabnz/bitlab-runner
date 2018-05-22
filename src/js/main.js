@@ -202,3 +202,6 @@ function socialShare(platform) {
             console.error('Invalid share option');
     }
 }
+
+// Check for execution
+console.log('execute: main.js');

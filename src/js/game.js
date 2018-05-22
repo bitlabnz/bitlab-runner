@@ -2740,3 +2740,6 @@ function onDocumentLoad() {
 }
 
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
+
+// Check for execution
+console.log('execute: game.js');

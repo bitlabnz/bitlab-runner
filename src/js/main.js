@@ -203,5 +203,7 @@ function socialShare(platform) {
     }
 }
 
+
+
 // Check for execution
-console.log('execute: main.js');
+console.log('executed: main.js');

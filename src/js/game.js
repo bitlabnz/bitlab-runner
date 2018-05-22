@@ -107,11 +107,14 @@
     
 
     function findStyleSheet() {
+        console.warn('FINDING STYLESHEET', document.styleSheets);
         var result = document.styleSheets[0];
+        
         for(var i=0;i<document.styleSheets.length;i++) {
             var stylesheet = document.styleSheets[i];
-            if(!!stylesheet.href && stylesheet.href && stylesheet.href.indexOf('css/styles.css') > -1) {
-                console.log('yas', stylesheet.href);
+            console.warn(stylesheet.title);
+            if(!!stylesheet.title && stylesheet.title === 'remote') {
+                console.log('yas', stylesheet);
                 result = stylesheet;
             }
         }
@@ -2762,4 +2765,4 @@ function onDocumentLoad() {
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
 
 // Check for execution
-console.log('execute: game.js');
+console.log('executed: game.js');

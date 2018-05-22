@@ -152,7 +152,7 @@ function shareToFacebook(url) {
         action_type: 'og.shares',
         action_properties: JSON.stringify({
             object : {
-               'og:url': 'http://192.168.1.200:8000/', // your url to share
+               'og:url': 'http://bitlab.co.nz/game', // your url to share
                'og:title': fbtitle,
                'og:description': fbsummary,
                'og:image': fbimg

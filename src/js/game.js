@@ -390,6 +390,8 @@
             // Hide the static icon.
             document.querySelector('.' + Runner.classes.ICON).style.visibility =
                 'hidden';
+            document.querySelector('.' + Runner.classes.ICON).style.height =
+                '0';
 
             this.adjustDimensions();
             this.setSpeed();
